@@ -1,5 +1,2 @@
 # python-projekt
-
-df
-
-jhj
+TEST
