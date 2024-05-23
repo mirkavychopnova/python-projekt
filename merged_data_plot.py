@@ -13,7 +13,6 @@ gdf2 = gpd.read_file("/Users/mirus/Desktop/python/PROJEKT/python-projekt/souradn
 
 # Načtení třetího GeoJSON ze souboru
 gdf3 = gpd.read_file("/Users/mirus/Desktop/python/PROJEKT/python-projekt/souradnice/teplota_nespojita_prevedena.geojson")
-gdf4 = gpd.read_file("/Users/mirus/Desktop/python/PROJEKT/python-projekt/souradnice/test.geojson")
 
 # Vytvoření nového grafu
 plt.figure(figsize=(10, 5))
@@ -27,8 +26,6 @@ gdf2.plot(ax=ax, color='seagreen', alpha=0.7, label='Stromy', markersize=10, asp
 
 # Vykreslení třetího GeoDataFrame
 gdf3.plot(ax=ax, color='red', alpha=0.7, label='Teploty', markersize=10, aspect=1)
-
-gdf4.plot(ax=ax, color='blue', alpha=0.7, label='Test', aspect=1)
 
 # Zobrazení legendy
 plt.legend()
