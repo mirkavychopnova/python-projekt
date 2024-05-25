@@ -19,7 +19,12 @@ logger.info("Načítání druhého GeoJSON souboru.")
 gdf2 = gpd.read_file("/Users/mirus/Desktop/python/PROJEKT/python-projekt/souradnice/stromy_kere_2014_2024.geojson")
 logger.info("Druhý GeoJSON soubor načten.")
 
-# Vytvoření bodového GeoDataFrame
+# Načtení GeoJSON kvality vzduchu ze souboru
+logger.info("Načítání třetího GeoJSON souboru.")
+gdf3 = gpd.read_file("/Users/mirus/Desktop/python/PROJEKT/python-projekt/souradnice/kvalita_ovzdusi_prevedena.geojson")
+logger.info("Třetí GeoJSON soubor načten.")
+
+# Definování souřadnic pro měření teploty
 logger.info("Vytváření bodového GeoDataFrame.")
 points = gpd.GeoDataFrame(geometry=[Point(1847613.3149919452, 6308942.125034717),
                                      Point(1846431.9702917489, 6303486.735041085),
@@ -51,13 +56,17 @@ gdf1.plot(ax=ax, color='palegreen', alpha=0.3, edgecolor='green', label='Zelené
 logger.info("Vykreslování stromů.")
 gdf2.plot(ax=ax, color='seagreen', alpha=0.5, label='Stromy', markersize=2, aspect=1)
 
+# Vykreslení bodů kvality vzduchu
+logger.info("Vykreslování kvality vzduchu.")
+gdf3.plot(ax=ax, color='red', label='Kvalita vzduchu', markersize=20, aspect=1)
+
 # Vykreslení polygonů
 logger.info("Vykreslování polygonů.")
 circles_gdf.plot(ax=ax, color='none', edgecolor='blue', alpha=0.5)
 
 # Vykreslení bodů
 logger.info("Vykreslování bodů.")
-points.plot(ax=ax, color='blue', markersize=5, label='Merici stanice')
+points.plot(ax=ax, color='blue', markersize=5, label='Teplota')
 
 # Přidání podkladové mapy pomocí OpenStreetMap
 logger.info("Přidávání podkladové mapy.")
